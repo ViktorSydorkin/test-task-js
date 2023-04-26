@@ -1,35 +1,33 @@
-$(function (){
-    let functions = $('div span');
-    $('div:first-child').click(buildTable);
-    $('div:nth-child(2)').click(clearPage);
-    $('div:nth-child(3)').click(tableColor);
-    $('div:nth-child(4)').click(textColor);
+$(function () {
+
 })
 
-function buildTable() {
-    let table = $('.el').html("");
-    let a=2, b=5;
+function buildTable(a, b, defaultValue='') {
     let html = "<table class='tab'>"
     for (let i = 0; i < a; i++) {
-        html+="<tr>"
+        html += "<tr>"
         for (let k = 0; k < b; k++) {
-            html+= "<td> " + 'X' + "</td>";
+            html += "<td> " + defaultValue + "</td>";
         }
-        html+="</tr>"
+        html += "</tr>"
     }
-    html+="</table>"
-    table.html(html).fadeIn();
-    $('.tab ').css('border', '1px solid black');
+    html += "</table>"
+    $('.el').html(html).hide().fadeIn();
+    $('table').css('border', '1px solid black');
+    $('.tab tr td').css('border', '1px solid grey');
 }
 
-function clearPage(){
+function clearPage() {
     $('.el').fadeOut();
+    setTimeout(function (){
+        $('.el').html("");
+    }, 450)
 }
-function tableColor(){
-    let r = 50, g =168, b= 82;
-    $('.tab').css('background-color', 'rgb('+r+', ' + g + ', ' + b + ')');
+
+function tableColor(r, g, b) {
+    $('.tab').css('background-color', 'rgb(' + Math.random() * 255 + ', ' + Math.random() * 255 + ', ' + Math.random() * 255 + ')');
 }
-function textColor(){
-    let r = 46, g= 42, b= 79;
-    $('.tab').css('color', 'rgb('+r+', ' + g + ', ' + b + ')');
+
+function textColor(r, g, b) {
+    $('.tab').css('color', 'rgb(' + Math.random() * 255 + ', ' + Math.random() * 255 + ', ' + Math.random() * 255 + ')');
 }
