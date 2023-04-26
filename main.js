@@ -7,6 +7,7 @@ $(function (){
 })
 
 function buildTable() {
+    let table = $('.el').html("");
     let a=2, b=5;
     let html = "<table class='tab'>"
     for (let i = 0; i < a; i++) {
@@ -17,12 +18,12 @@ function buildTable() {
         html+="</tr>"
     }
     html+="</table>"
-    $('.el').html(html);
+    table.html(html).fadeIn();
     $('.tab ').css('border', '1px solid black');
 }
 
 function clearPage(){
-    $('.el').html("");
+    $('.el').fadeOut();
 }
 function tableColor(){
     let r = 50, g =168, b= 82;
