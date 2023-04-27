@@ -1,7 +1,3 @@
-$(function () {
-
-})
-
 function buildTable(a, b, defaultValue='') {
     let html = "<table class='tab'>"
     for (let i = 0; i < a; i++) {
@@ -24,10 +20,14 @@ function clearPage() {
     }, 450)
 }
 
-function tableColor(r, g, b) {
+function tableColor() {
     $('.tab').css('background-color', 'rgb(' + Math.random() * 255 + ', ' + Math.random() * 255 + ', ' + Math.random() * 255 + ')');
 }
 
-function textColor(r, g, b) {
+function textColor() {
     $('.tab').css('color', 'rgb(' + Math.random() * 255 + ', ' + Math.random() * 255 + ', ' + Math.random() * 255 + ')');
+}
+
+function setData(row, column, element) {
+    $('.tab tr:nth-child('+ row+') td:nth-child('+column+')').html(element);
 }
